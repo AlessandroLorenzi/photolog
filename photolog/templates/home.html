@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Photolog</title>
+</head>
+
+<body>
+    <h1>Photolog</h1>
+    {% for photo in photos %}
+    {% load render_markdown %}
+    <div style="max-width: 30em">
+        <img src="{{ photo.image.url }}" alt="{{ photo.description }}" style="max-width: 100%;">
+        <p>
+            {{ photo.description | render_markdown }}
+            <small><em>Caricata il: {{ photo.created_at }}</em></small>
+        </p>
+    </div>
+    {% endfor %}
+</body>
